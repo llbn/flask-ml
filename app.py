@@ -12,8 +12,7 @@ from helfer import base64_to_pil
 # flask app
 app = Flask(__name__)
 
-
-model_pfad = "/Users/lbn/datax-projekt/web/model/model.h5"
+model_pfad = "./model/model.h5"
 
 # Model laden
 model = tf.keras.models.load_model(model_pfad)
