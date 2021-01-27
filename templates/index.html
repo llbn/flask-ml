@@ -1,0 +1,68 @@
+{% extends "base.html" %} {% block content %}
+
+ <div class="main">
+   <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 min-w-1xl w-6/12">
+      <div class="max-w-4xl mx-auto">
+         <div width="200" class="bg-white shadow overflow-hidden sm:rounded-lg">
+            <div class="px-4 py-5 sm:px-6">
+               <h3 class="text-lg leading-6 font-medium text-gray-900">
+                  Früchte Klassifizieren
+               </h3>
+              <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                  DataX Projekt
+              </p>
+            </div>
+            <div class="border-t border-gray-200">
+               <dl>
+                  <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                     <dt class="text-sm font-medium text-gray-500">
+                        Upload
+                     </dt>
+                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                         <!-- bild upload -->
+                         <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" />
+                         <!-- upload / drag & drop box -->
+                         <label for="file-upload" id="file-drag" class="upload-box inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">
+                             <div id="upload-caption">Drag & Drop oder klicken für Upload</div>
+                             <img id="image-preview" class="hidden" />
+                         </label>
+                     </dd>
+                  </div>
+                  <div class="border-b border-gray-200 bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:pb-10">
+                     <dt class="text-sm font-medium text-gray-500">
+                        Klassifizierung
+                     </dt>
+                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                       <!-- Ergebnis / Klassifikation -->
+                       <div id="image-box">
+                          <!-- bild -->
+                          <img id="image-display" />
+                          <!-- overlay für Ergebnis -->
+                          <div id="pred-result" class="hidden"></div>
+                          <!-- Spinner / Anzeige für laden -->
+                          <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
+                            <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+                          </svg>
+                       </div>
+                     </dd>
+                  </div>
+                  <div>
+                     <div class="bg-gray-50 pt-4 pb-2 flex justify-center">
+                       <!-- Bild klassifizieren -->
+                       <button onclick="submitImage();" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 mr-2">
+                       Klassifizieren
+                       </button>
+                       <!-- Reset -->
+                       <button onclick="clearImage();" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                       Zurücksetzen
+                       </button>
+                     </div>
+                  </div>
+               </dl>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+{% endblock %}
